@@ -4,11 +4,21 @@
 
 int _tmain(int argc, TCHAR *argv[])
 {
-	HANDLE hFile;
-	HANDLE hAppend;
+	HANDLE source_file;
+	HANDLE target_file;
 	DWORD  dwBytesRead, dwBytesWritten, dwPos;
 	BYTE   buff[4096];
 
+
+	FILETIME m_creationTime;
+	FILETIME m_lpLastAccessTime;
+	FILETIME m_lastWriteTIme;
+
+	FILETIME t_creationTime;
+	FILETIME t_lpLastAccessTime;
+	FILETIME t_lastWriteTIme;
+
+	boolean isNew = FALSE;
 	// Open the existing file.
 
 	if (argc != 3) {
@@ -16,7 +26,7 @@ int _tmain(int argc, TCHAR *argv[])
 		return -1;
 	}
 
-	hFile = CreateFile(argv[1], // open One.txt
+	source_file = CreateFile(argv[1], // open source file
 		GENERIC_READ,             // open for reading
 		0,                        // do not share
 		NULL,                     // no security
@@ -24,63 +34,86 @@ int _tmain(int argc, TCHAR *argv[])
 		FILE_ATTRIBUTE_NORMAL,    // normal file
 		NULL);                    // no attr. template
 
-	if (hFile == INVALID_HANDLE_VALUE)
+	if (source_file == INVALID_HANDLE_VALUE) // not existing
 	{
 		printf("Could not open One.txt.");
-		
+
 		return;
 	}
-
-	// Open the existing file, or if the file does not exist,
-	// create a new file
-	char s[] = "to.txt";
-
-
-	if (_unlink(s)) {
-		switch (errno) {
-		case EACCES:
-			fprintf(stderr, "Access is denied: %s\n", s); break;
-		case ENOENT:
-			fprintf(stderr, "Could not find: %s\n", s); break;
-		default:
-			fprintf(stderr, "Unknown error.\n"); break;
-		}
-	}
-	else
-		printf("Deleted: %s\n", s);
-
-	hAppend = CreateFile(argv[2], // open Two.txt
+	target_file = CreateFile(argv[2], // open existing Target File
 		FILE_APPEND_DATA,         // open for writing
 		FILE_SHARE_READ,          // allow multiple readers
 		NULL,                     // no security
-		OPEN_ALWAYS,              // open or create
+		OPEN_EXISTING,              // open or create
 		FILE_ATTRIBUTE_NORMAL,    // normal file
 		NULL);                    // no attr. template
-
-	if (hAppend == INVALID_HANDLE_VALUE)
+	if (target_file == INVALID_HANDLE_VALUE) // 
 	{
-		printf("Could not open Two.txt.");
+		target_file = CreateFile(argv[2], // Creating a new File
+		FILE_APPEND_DATA,        
+		FILE_SHARE_READ,         
+		NULL,                    
+		CREATE_NEW,              
+		FILE_ATTRIBUTE_NORMAL,    
+		NULL);
+		isNew = TRUE;
+	}
+	boolean t_time_detected_error = GetFileTime(source_file, &m_creationTime, &m_lpLastAccessTime, &m_lastWriteTIme);
+	if (!t_time_detected_error) {
+		printf("Could not open target File time.");
 		return;
 	}
+	boolean m_time_detected_error = GetFileTime(target_file, &t_creationTime, &t_lpLastAccessTime, &t_lastWriteTIme);
+	if (!m_time_detected_error) {
+		printf("Could not open target File time.");
+		return;
+	}
+
+
+	//if (GetFileSize(source_file, NULL) != GetFileSize(target_file, NULL)) {
+	if (CompareFileTime(&m_lastWriteTIme, &t_lastWriteTIme) == 1 || isNew) { // source file 의 write 시간이 더 최근 or target file이 새로 만들어진 경우
+		isNew = FALSE;
+		CloseHandle(target_file);
+
+		DeleteFile(argv[2]); //
+
+		target_file = CreateFile(argv[2], // open target file
+			FILE_APPEND_DATA,         // open for writing
+			FILE_SHARE_READ,          // allow multiple readers
+			NULL,                     // no security
+			OPEN_ALWAYS,              // open or create
+			FILE_ATTRIBUTE_NORMAL,    // normal file
+			NULL);                    // no attr. template
+
+		if (target_file == INVALID_HANDLE_VALUE)
+		{
+			printf("Could not open Two.txt.");
+			return;
+		}
+		printf("file backup is completed.");
+		while (ReadFile(source_file, buff, sizeof(buff), &dwBytesRead, NULL)
+			&& dwBytesRead > 0)
+		{
+			dwPos = SetFilePointer(target_file, 0, NULL, FILE_BEGIN);
+			LockFile(target_file, dwPos, 0, dwBytesRead, 0);
+			WriteFile(target_file, buff, dwBytesRead, &dwBytesWritten, NULL);
+			UnlockFile(target_file, dwPos, 0, dwBytesRead, 0);
+		}
+
+	}
+	else
+		printf("file is not updated");
 
 	// Append the first file to the end of the second file.
 	// Lock the second file to prevent another process from
 	// accessing it while writing to it. Unlock the
 	// file when writing is complete.
 
-	while (ReadFile(hFile, buff, sizeof(buff), &dwBytesRead, NULL)
-		&& dwBytesRead > 0)
-	{
-		dwPos = SetFilePointer(hAppend, 0, NULL, FILE_END);
-		LockFile(hAppend, dwPos, 0, dwBytesRead, 0);
-		WriteFile(hAppend, buff, dwBytesRead, &dwBytesWritten, NULL);
-		UnlockFile(hAppend, dwPos, 0, dwBytesRead, 0);
-	}
+
 
 	// Close both files.
 
-	CloseHandle(hFile);
-	CloseHandle(hAppend);
-
+	CloseHandle(source_file);
+	CloseHandle(target_file);
 	return 0;
 }
