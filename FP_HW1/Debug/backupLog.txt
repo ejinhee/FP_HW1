@@ -1,0 +1,73 @@
+
+Target directory is D:\source
+
+now we in :::::::::: D:\destination(old) DIR:::
+********MOVE FROM  ????.txt   0 bytes
+********MOVE TO    D:\destination(old)\   0 bytes
+now we in :::::::::: D:\destination(old) DIR:::
+********MOVE FROM  code   <DIR>
+********MOVE TO    D:\destination(old)\code   <DIR>
+now we in :::::::::: D:\destination(old)\code DIR:::
+********MOVE FROM  hello.txt   0 bytes
+********MOVE TO    D:\destination(old)\code\   0 bytes
+now we in :::::::::: D:\destination(old)\code DIR:::
+********MOVE FROM  newfile.txt   12 bytes
+********MOVE TO    D:\destination(old)\code\   12 bytes
+now we in :::::::::: D:\destination(old)\code DIR:::
+********MOVE FROM  build   <DIR>
+********MOVE TO    D:\destination(old)\code\build   <DIR>
+now we in :::::::::: D:\destination(old)\code\build DIR:::
+********MOVE FROM  source   <DIR>
+********MOVE TO    D:\destination(old)\code\build\source   <DIR>
+now we in :::::::::: D:\destination(old)\code\build\source DIR:::
+********MOVE FROM  add.txt   0 bytes
+********MOVE TO    D:\destination(old)\code\build\source\   0 bytes
+now we in :::::::::: D:\destination(old)\code\build\source DIR:::
+********MOVE FROM  add_test.txt   3 bytes
+********MOVE TO    D:\destination(old)\code\build\source\   3 bytes
+now we in :::::::::: D:\destination(old)\code\build\source DIR:::
+********MOVE FROM  divide.txt   8 bytes
+********MOVE TO    D:\destination(old)\code\build\source\   8 bytes
+now we in :::::::::: D:\destination(old)\code\build\source DIR:::
+********MOVE FROM  divide_test.txt   6 bytes
+********MOVE TO    D:\destination(old)\code\build\source\   6 bytes
+now we in :::::::::: D:\destination(old)\code\build\source DIR:::
+********MOVE FROM  multiply.txt   11 bytes
+********MOVE TO    D:\destination(old)\code\build\source\   11 bytes
+now we in :::::::::: D:\destination(old)\code\build\source DIR:::
+********MOVE FROM  multiply_test.txt   8 bytes
+********MOVE TO    D:\destination(old)\code\build\source\   8 bytes
+now we in :::::::::: D:\destination(old)\code\build\source DIR:::
+now we in :::::::::: D:\destination(old)\code\build DIR:::
+now we in :::::::::: D:\destination(old)\code DIR:::
+********MOVE FROM  target   <DIR>
+********MOVE TO    D:\destination(old)\code\target   <DIR>
+now we in :::::::::: D:\destination(old)\code\target DIR:::
+********MOVE FROM  classes   <DIR>
+********MOVE TO    D:\destination(old)\code\target\classes   <DIR>
+now we in :::::::::: D:\destination(old)\code\target\classes DIR:::
+********MOVE FROM  add.txt   0 bytes
+********MOVE TO    D:\destination(old)\code\target\classes\   0 bytes
+now we in :::::::::: D:\destination(old)\code\target\classes DIR:::
+********MOVE FROM  divide.txt   11 bytes
+********MOVE TO    D:\destination(old)\code\target\classes\   11 bytes
+now we in :::::::::: D:\destination(old)\code\target\classes DIR:::
+********MOVE FROM  multiply.txt   14 bytes
+********MOVE TO    D:\destination(old)\code\target\classes\   14 bytes
+now we in :::::::::: D:\destination(old)\code\target\classes DIR:::
+now we in :::::::::: D:\destination(old)\code\target DIR:::
+********MOVE FROM  test-classes   <DIR>
+********MOVE TO    D:\destination(old)\code\target\test-classes   <DIR>
+now we in :::::::::: D:\destination(old)\code\target\test-classes DIR:::
+********MOVE FROM  add_test.txt   0 bytes
+********MOVE TO    D:\destination(old)\code\target\test-classes\   0 bytes
+now we in :::::::::: D:\destination(old)\code\target\test-classes DIR:::
+********MOVE FROM  divide_test.txt   16 bytes
+********MOVE TO    D:\destination(old)\code\target\test-classes\   16 bytes
+now we in :::::::::: D:\destination(old)\code\target\test-classes DIR:::
+********MOVE FROM  multiply_test.txt   19 bytes
+********MOVE TO    D:\destination(old)\code\target\test-classes\   19 bytes
+now we in :::::::::: D:\destination(old)\code\target\test-classes DIR:::
+now we in :::::::::: D:\destination(old)\code\target DIR:::
+now we in :::::::::: D:\destination(old)\code DIR:::
+now we in :::::::::: D:\destination(old) DIR:::

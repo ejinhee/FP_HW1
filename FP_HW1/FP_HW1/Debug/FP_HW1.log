@@ -1,3 +1,11 @@
-﻿  test.c
+﻿  test2t.cpp
+c:\users\leejinhee\documents\visual studio 2015\projects\fp_hw1\fp_hw1\test2t.cpp(34): warning C4474: 'wprintf' : 서식 문자열에 전달된 인수가 너무 많습니다.
+  c:\users\leejinhee\documents\visual studio 2015\projects\fp_hw1\fp_hw1\test2t.cpp(34): note: 자리 표시자 및 해당 매개 변수에는 variadic 인수가 0개 필요하지만 1개가 제공되었습니다.
+c:\users\leejinhee\documents\visual studio 2015\projects\fp_hw1\fp_hw1\test2t.cpp(300): warning C4477: 'fwprintf' : 서식 문자열 '%ld'에 'long' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'LONGLONG'입니다.
+  c:\users\leejinhee\documents\visual studio 2015\projects\fp_hw1\fp_hw1\test2t.cpp(300): note: 서식 문자열에서 '%lld'을(를) 사용하는 것이 좋습니다.
+  c:\users\leejinhee\documents\visual studio 2015\projects\fp_hw1\fp_hw1\test2t.cpp(300): note: 서식 문자열에서 '%I64d'을(를) 사용하는 것이 좋습니다.
+c:\users\leejinhee\documents\visual studio 2015\projects\fp_hw1\fp_hw1\test2t.cpp(301): warning C4477: 'fwprintf' : 서식 문자열 '%ld'에 'long' 형식의 인수가 필요하지만 variadic 인수 2의 형식이 'LONGLONG'입니다.
+  c:\users\leejinhee\documents\visual studio 2015\projects\fp_hw1\fp_hw1\test2t.cpp(301): note: 서식 문자열에서 '%lld'을(를) 사용하는 것이 좋습니다.
+  c:\users\leejinhee\documents\visual studio 2015\projects\fp_hw1\fp_hw1\test2t.cpp(301): note: 서식 문자열에서 '%I64d'을(를) 사용하는 것이 좋습니다.
   FP_HW1.vcxproj -> C:\Users\LEEJINHEE\documents\visual studio 2015\Projects\FP_HW1\Debug\FP_HW1.exe
   FP_HW1.vcxproj -> C:\Users\LEEJINHEE\documents\visual studio 2015\Projects\FP_HW1\Debug\FP_HW1.pdb (Full PDB)

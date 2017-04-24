@@ -26,20 +26,17 @@ int _tmain(int argc, TCHAR *argv[])
 		return -1;
 	}
 
-	source_file = CreateFile(argv[1], // open source file
-		GENERIC_READ,             // open for reading
-		0,                        // do not share
-		NULL,                     // no security
-		OPEN_EXISTING,            // existing file only
-		FILE_ATTRIBUTE_NORMAL,    // normal file
-		NULL);                    // no attr. template
+	source_file = CreateDirectory(argv[1], NULL); // open source file
+		                  // no attr. template
 
 	if (source_file == INVALID_HANDLE_VALUE) // not existing
 	{
-		printf("Could not open One.txt.");
+		printf("Could not open One.txt.z");
 
 		return;
 	}
+
+	/*
 	target_file = CreateFile(argv[2], // open existing Target File
 		FILE_APPEND_DATA,         // open for writing
 		FILE_SHARE_READ,          // allow multiple readers
@@ -112,8 +109,8 @@ int _tmain(int argc, TCHAR *argv[])
 
 
 	// Close both files.
-
+	*/
 	CloseHandle(source_file);
-	CloseHandle(target_file);
+//	CloseHandle(target_file);
 	return 0;
 }

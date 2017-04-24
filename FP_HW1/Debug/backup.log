@@ -1,0 +1,15 @@
+now we in :::::::::: D:\new\ DIR:::
+********MOVE FROM  target1   <DIR>
+********MOVE TO    D:\new\\target1   <DIR>
+now we in :::::::::: D:\new\\target1 DIR:::
+********MOVE FROM  a2   <DIR>
+********MOVE TO    D:\new\\target1\a2   <DIR>
+now we in :::::::::: D:\new\\target1\a2 DIR:::
+now we in :::::::::: D:\new\\target1 DIR:::
+********MOVE FROM  to2.txt   0 bytes
+********MOVE TO    D:\new\\target1\   0 bytes
+now we in :::::::::: D:\new\\target1 DIR:::
+now we in :::::::::: D:\new\ DIR:::
+********MOVE FROM  to.txt   0 bytes
+********MOVE TO    D:\new\\   0 bytes
+now we in :::::::::: D:\new\ DIR:::

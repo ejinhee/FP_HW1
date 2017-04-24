@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test.c" />
+    <ClCompile Include="test2t.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8A733BD5-5693-4333-A554-2C389FF0BE71}</ProjectGuid>
